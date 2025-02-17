@@ -30,3 +30,6 @@ Locally preview production build:
 npm run preview
 ```
 
+# env
+- nvm 22.14.0
+- npm 10.9.2
