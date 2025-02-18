@@ -18,8 +18,6 @@
 </template>
 
 <script setup>
-// import { useAuthStore } from '@/stores/auth'
-
 const authStore = useAuthStore()
 const input = reactive({
     name: authStore.user.name,

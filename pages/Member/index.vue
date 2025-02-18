@@ -29,7 +29,6 @@
 
 <script setup>
 import { ref } from 'vue'
-// import { useAuthStore } from '@/stores/auth'
 
 const mobile = ref('');
 const checkMember = ref(0);

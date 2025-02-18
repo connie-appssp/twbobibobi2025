@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss'
   ],
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/src/assets/css/tailwind.css'],
   postcss: {
     plugins: {
       tailwindcss: {},
