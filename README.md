@@ -33,3 +33,7 @@ npm run preview
 # env
 - nvm 22.14.0
 - npm 10.9.2
+
+# VSCode plugins
+- Vetur
+- PostCss Language Support

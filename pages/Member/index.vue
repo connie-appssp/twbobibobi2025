@@ -1,6 +1,6 @@
 <template>
     <div>
-        會員登入
+        <span class="text-lg">會員登入</span>
         <div>
             手機 <input v-model='mobile' type='text' required>
             <button v-on:click='sendVerifyCode'>發送驗證碼</button>

@@ -4,5 +4,24 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@pinia/nuxt',
+    '@nuxtjs/tailwindcss'
   ],
+  css: ['~/assets/css/tailwind.css'],
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+  vite: {
+    server: {
+      watch: {
+        usePolling: true, // 確保在某些環境（如 WSL、Docker）即時更新
+      },
+      hmr: {
+        protocol: 'ws',
+        host: 'localhost',
+      },
+    },
+  },
 })
