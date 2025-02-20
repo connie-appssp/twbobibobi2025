@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import {  useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { ref, reactive, onMounted, nextTick } from 'vue'
 
 const activeSubmenu = false; // 確認是否啟用網站子選單

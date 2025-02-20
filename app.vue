@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="text-zinc-700">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
