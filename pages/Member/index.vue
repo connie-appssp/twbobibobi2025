@@ -1,16 +1,5 @@
 <template #content>
     <div class="container mx-auto px-4">
-        <nav aria-label="breadcrumb" class="border-b border-zinc-300 p-2 text-zinc-400 text-sm">
-            <ol class="flex space-x-1">
-                <li><a href="/">首頁</a></li>
-                <li>&gt;</li>
-                <li><a href="/category">信眾服務</a></li>
-                <li>&gt;</li>
-                <li>訂單查詢</li>
-                <li>&gt;</li>
-                <li>信眾身份驗證</li>
-            </ol>
-        </nav>
 
         <div class="w-fit mx-auto space-y-2 mt-3">
 
@@ -88,7 +77,7 @@ import { ref } from 'vue'
 
 definePageMeta({
   layout: 'member',
-  title: '會員登入',
+  title: '信眾身份驗證',
   })
 
 const mobile = ref('');

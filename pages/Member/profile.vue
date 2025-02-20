@@ -1,5 +1,12 @@
-<template>
-    <div v-if='authStore.isLoggedIn'>
+<template #content>
+    <div class="container mx-auto px-4">
+        
+    </div>
+
+
+
+
+    <!-- <div v-if='authStore.isLoggedIn'>
         會員資料
         <div>
             <div>
@@ -14,18 +21,26 @@
         <div>
             <button v-on:click='handleLogout'>登出</button>
         </div>
-    </div>
+    </div> -->
 </template>
 
 <script setup>
-const authStore = useAuthStore()
+definePageMeta({
+  layout: 'member',
+  title: '基本資料',
+  })
+
+
+// const authStore = useAuthStore()
 const input = reactive({
-    name: authStore.user.name,
-    mobile: authStore.user.mobile
+    // name: authStore.user.name,
+    // mobile: authStore.user.mobile
+    name: '',
+    mobile: ''
 })
 
 const handleLogout = () => {
-    authStore.logout()
+    // authStore.logout()
     useRouter().push('/Member')
 }
 
