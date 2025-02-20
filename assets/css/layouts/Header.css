@@ -1,0 +1,178 @@
+:root {
+    --header-height: 5.2vw;
+    --negative-header-height: -5.2vw;
+}
+
+/*-------------------------Header-----------------------*/
+header {
+    /* transition: 1s;
+    top: var(--negative-header-height); /* -7.813vw; 
+    display: block;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: var(--header-height); /* 7.813vw; 
+    background: url('/img/bg/footBg.jpg') no-repeat bottom center;
+    background-size: cover;
+    text-align: center; */
+}
+
+header.active {
+    /* top: 0; */
+}
+
+.SiteLogo {
+    display: block;
+    position: absolute;
+    left: 1vw;
+    top: 10%;
+    width: 7.62%;
+}
+
+header::before {
+    /* content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle; */
+}
+
+/*---------------------------Menu-----------------------*/
+.KVMenu {
+    display: block;
+    height: 15vh;
+    text-align: center;
+}
+
+.KVMenu::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.MenuBk {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 auto;
+    /*width: 34.517%;*/
+    width: 55%;
+}
+
+ul.MenuList {
+    font-size: 0;
+}
+
+    ul.MenuList li {
+        width: 13.492%;
+        /*width: 10%;*/
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+        /*margin-right: 15.344%;*/
+        margin-right: 5%;
+    }
+
+ul.MenuList li:last-child {
+    margin-right: 0;
+}
+
+ul.MenuList a {
+    display: block;
+}
+
+ul.MenuList a:hover, ul.MenuList a.active {
+    background: url("/img/bg/btn_click.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+ul.MenuList li img {
+    display: block;
+    /*width: 93.76%;*/
+    width: 50%;
+    margin: 0 auto;
+}
+
+ul.MenuList li a div {
+    font-size: 1vw;
+    color: #5E0B15;
+}
+
+/* mobile menu */
+.KVBk {
+    display: block;
+    position: relative;
+    height: 100vh;
+}
+
+
+@media only screen and (max-width: 1180px) {
+    .MenuBk {
+        /*width: 50%;*/
+        width: 85%;
+    }
+    
+    ul.MenuList li img {
+        /*width: 80%;*/
+        width: 60%;
+    }
+    
+    ul.MenuList li a div {
+        font-size: 1.5vw;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    header {
+        top: -100px;
+        height: 100px;
+        text-align: right;
+    } 
+    
+    .SiteLogo {
+        width: 95px;
+    }   
+    
+    .MenuBk {
+        /*width: 65%;*/
+        width: 95%;
+    }
+    
+    ul.MenuList li {
+        /*width: 22%;*/
+        margin-right: 3%;
+    }  
+    
+    ul.MenuList a {
+        font-size: 0;
+    }    
+    ul.MenuList li img {
+        width: 65%;
+    }
+    ul.MenuList li a div {
+        font-size: 2.5vw;
+    }   
+}
+
+@media only screen and (max-width: 420px) {
+    header .MenuBk {
+        padding-right: 1vw;
+    }    
+    .SiteLogo {
+        width: 70px;
+        top: 30%;
+    }
+
+    .MenuBk {
+        /*width: 100%;*/
+        width: 98%;
+    }
+    ul.MenuList li img {
+        width: 80%;
+    }
+    ul.MenuList li a div {
+        font-size: 3vw;
+    }
+
+}

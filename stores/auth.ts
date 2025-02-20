@@ -1,14 +1,14 @@
 // import { defineStore } from 'pinia'
 
 interface UserData {
-    phoneNumber: string
+    mobile: string
     name: string
 }
 
 export const useAuthStore = defineStore('auth', {
     state: ()=> ({
         isLoggedIn: false,
-        user: null as UserData | null
+        user: null as UserData | null,
     }),
     actions: {
         login(userData: UserData) {

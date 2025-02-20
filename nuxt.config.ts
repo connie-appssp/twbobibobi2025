@@ -2,11 +2,24 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  app: {
+    baseURL: '/',
+    head: {
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
+      ]
+    }
+  },
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss'
   ],
-  css: ['~/src/assets/css/tailwind.css'],
+  css: [
+    '~/assets/css/tailwind.css',
+    '~/assets/css/global.css',
+    '~/assets/css/layouts/Header.css',
+    '~/assets/css/layouts/Footer.css'
+  ],
   postcss: {
     plugins: {
       tailwindcss: {},

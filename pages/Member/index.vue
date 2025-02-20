@@ -1,4 +1,4 @@
-<template>
+<template #content>
     <div>
         <span class="text-lg">會員登入</span>
         <div>
@@ -29,6 +29,11 @@
 
 <script setup>
 import { ref } from 'vue'
+
+definePageMeta({
+  layout: 'member',
+  title: '會員登入',
+  })
 
 const mobile = ref('');
 const checkMember = ref(0);

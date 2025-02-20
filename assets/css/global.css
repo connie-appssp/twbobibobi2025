@@ -1,0 +1,31 @@
+@charset "utf-8";
+@font-face {
+    font-family: 'FakePearl-Regular';
+    src: url('/fonts/FakePearl-Regular.woff2') format("woff2"), 
+		 url('/fonts/FakePearl-Regular.woff') format("woff");
+
+	font-weight: normal;
+    font-style: normal;
+}
+
+::selection, ::-moz-selection {
+	background: #E3BABA;
+	color: #ffffff;
+}
+
+html {
+	font-family: 'FakePearl-Regular', sans-serif;
+	
+	height: 100%;
+	margin: 0;
+}
+
+a {
+	transition: .5s;
+}
+
+.mob {
+	display: none !important;
+}
+
+
