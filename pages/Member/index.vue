@@ -7,7 +7,7 @@
 
             <div class="w-fit flex items-center space-x-2">
                 <div class="w-16 text-justify" style="text-align-last: justify;">
-                    <label for="phone" class="font-semibold">手機</label>
+                    <label for="phone">手機</label>
                 </div>
                 <div class="w-48">
                     <input type="text" placeholder="請輸入手機號碼"  v-model='mobile'
@@ -20,13 +20,13 @@
                 <div class="w-16"></div>
                 <div class="w-48">
                     <button type="button" 
-                            class="w-full bg-red-950 text-white font-semibold px-4 py-2 rounded-lg hover:bg-yellow-950 transition"
+                            class="w-full bg-red-950 text-white px-4 py-2 rounded-lg hover:bg-yellow-950 transition"
                             ref="sendVerifyCodeBtn"
                             v-on:click='verifyMember'>
                         傳送驗證碼
                     </button>
                     <button type="button" 
-                            class="bg-red-950 text-white font-semibold px-4 py-2 rounded-lg hover:bg-yellow-950 transition hidden"
+                            class="bg-red-950 text-white px-4 py-2 rounded-lg hover:bg-yellow-950 transition hidden"
                             v-on:click='verifyMember'>
                         90 秒後可重新傳送驗證碼
                     </button>

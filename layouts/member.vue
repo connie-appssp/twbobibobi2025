@@ -44,7 +44,8 @@
                 </button>
                 
                 <ul class="space-y-1 md:space-y-3 opacity-100 transition-all duration-300" ref="asideMenu">
-                  <li><a href="#" class="block hover:bg-zinc-50 rounded">購買人基本資料</a></li>
+                  <li><a href="#" class="block hover:bg-zinc-50 rounded">基本資料</a></li>
+                  <li><a href="#" class="block hover:bg-zinc-50 rounded">收件資料</a></li>
                   <li><a href="#" class="block hover:bg-zinc-50 rounded">常用祈福人</a></li>
                   <li><a href="#" class="block hover:bg-zinc-50 rounded">購買資料</a></li>
                 </ul>
