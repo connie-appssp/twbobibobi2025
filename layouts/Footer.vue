@@ -28,7 +28,7 @@
                             <!--<li><a href="tel:0436092299">
                                 <img src="https://bobibobi.tw/Temples/images/foot_icon_02.png" width="28" height="30" alt="" /><span>04-3609-2299</span></a></li>-->
                             <li><a href="mailto:alyssa@appssp.com">
-                                <img src="/img/icons/foot_icon_03.png" width="28" height="30" alt="" /><span>alyssa@appssp.com</span></a></li>
+                                <img src="/img/icons/foot_icon_03.png" width="28" height="30" alt="" /><span>service@appssp.com</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,16 +48,20 @@
                     </div>
                 </div>
                 <div class="footLogo">
-                    <div class="footLogoList">
-                        <ul>
-                            <li id="cht">
-                                <img src="/img/partner/foot_logo_03.png" alt="中華電信" class="CoLogo_T" /></li>
-                            <li id="fet">
-                                <img src="/img/partner/foot_logo_02.png" alt="遠傳電信" class="CoLogo_T" /></li>
-                            <li id="twm">
-                                <img src="/img/partner/foot_logo_04.png" alt="台灣大哥大" class="CoLogo_T" /></li>
+                    <div>
+                        <ul class="grid grid-cols-3">
+                            <li class="mt-2">
+                                <img src="/img/partner/foot_logo_03.png" alt="中華電信" class="CoLogo_T" />
+                            </li>
                             <li>
-                                <img src="/img/partner/foot_logo_01.png" alt="薪薪網元" class="CoLogo_T" /></li>
+                                <img src="/img/partner/foot_logo_02.png" alt="遠傳電信" class="CoLogo_T" />
+                            </li>
+                            <li class="mt-1">
+                                <img src="/img/partner/foot_logo_04.png" alt="台灣大哥大" class="CoLogo_T" />
+                            </li>
+                            <li class="col-span-3">
+                                <img src="/img/partner/foot_logo_01.png" alt="薪薪網元" class="CoLogo_T justify-self-center" />
+                            </li>
                         </ul>
                     </div>
                     <div class="copyright">Copyright©2022-<span id="NowYear"></span> 保必保庇線上點燈祈福平台<br>
