@@ -88,6 +88,7 @@ definePageMeta({
   title: '基本資料',
 })
 
+const isSendVerifyCode = ref(false);
 const authStore = useAuthStore()
 
 const input = reactive({
