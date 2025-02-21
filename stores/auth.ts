@@ -1,5 +1,3 @@
-// import { defineStore } from 'pinia'
-
 interface UserData {
     mobile: string
     name: string
