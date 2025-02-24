@@ -11,12 +11,18 @@ export const useAuthStore = defineStore('auth', {
     actions: {
         login(userData: UserData) {
             // fetch api ... 
-            this.isLoggedIn = true,
-            this.user = userData
+            this.isLoggedIn = true;
+            this.user = userData;
+            
+            useCookie('isLoggedIn').value = "true";
+            useCookie('user').value = JSON.stringify(this.user);
         },
         logout() {
-            this.isLoggedIn = false,
-            this.user = null
+            this.isLoggedIn = false;
+            this.user = null;
+
+            useCookie('isLoggedIn').value = "false";
+            useCookie('user').value = null;
         }
     }
 })

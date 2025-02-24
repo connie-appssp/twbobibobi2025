@@ -22,7 +22,19 @@
                   <li>&gt;</li>
                   <li>信眾專區</li>
                   <li>&gt;</li>
-                  <li>購買人基本資料</li>
+                  <li>基本資料</li>
+              </ol>
+          </nav>
+
+          <nav v-if="isReceivePage" aria-label="breadcrumb" class="border-b border-zinc-300 p-2 text-zinc-400 text-sm">
+              <ol class="flex space-x-1">
+                  <li><a href="/">首頁</a></li>
+                  <li>&gt;</li>
+                  <li><a href="/category">信眾服務</a></li>
+                  <li>&gt;</li>
+                  <li>信眾專區</li>
+                  <li>&gt;</li>
+                  <li>常用收件資料</li>
               </ol>
           </nav>
 
@@ -44,10 +56,11 @@
                 </button>
                 
                 <ul class="space-y-1 md:space-y-3 opacity-100 transition-all duration-300" ref="asideMenu">
-                  <li><a href="#" class="block hover:bg-zinc-50 rounded">基本資料</a></li>
-                  <li><a href="#" class="block hover:bg-zinc-50 rounded">收件資料</a></li>
-                  <li><a href="#" class="block hover:bg-zinc-50 rounded">常用祈福人</a></li>
-                  <li><a href="#" class="block hover:bg-zinc-50 rounded">購買資料</a></li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/profile')">基本資料</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/receive')">收件資料</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('#')">常用祈福人</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('#')">購買資料</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('#')">登出</li>
                 </ul>
 
               </nav>
@@ -72,6 +85,7 @@ const route = useRoute();
 const asideMenu = ref(null);
 const isLoginPage = ref(true);
 const isProfilePage = ref(false);
+const isReceivePage = ref(false);
 
 
 const toggleAsideMenu = () => {
@@ -88,13 +102,26 @@ const resizeWindow = () => {
     }
 }
 
+const checkRoutePath = (newPath) => {
+  const path  = newPath ?? route.path;
+    isLoginPage.value = path === '/Member' || path === '/Member/';
+    isProfilePage.value = path === '/Member/profile';
+    isReceivePage.value = path === '/Member/receive';
+}
+
+
+const goToPage = (link) => {
+    location.href = link;
+}
+
+
 onMounted(() => {
   window.addEventListener('resize', resizeWindow);
+  checkRoutePath();
 })
 
 watch(() => route.path, (newPath) => {
-  isLoginPage.value = newPath === '/Member' || newPath === '/Member/';
-  isProfilePage.value = newPath === '/Member/profile';
+  checkRoutePath(newPath);
 })
 
 
