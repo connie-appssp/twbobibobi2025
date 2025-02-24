@@ -5,7 +5,7 @@ export default {
       // './components/**/*.vue',
       './layouts/**/*.vue',
       // './plugins/**/*.js',
-      // './nuxt.config.ts'
+      // './nuxt.config.ts',
     ],
     theme: {
       extend: {
