@@ -4,17 +4,7 @@
 
         <div class="mt-28 container mx-auto px-4">
             
-          <nav v-if="isLoginPage" aria-label="breadcrumb" class="border-b border-zinc-300 p-2 text-zinc-400 text-sm">
-              <ol class="flex space-x-1">
-                  <li><a href="/">首頁</a></li>
-                  <li>&gt;</li>
-                  <li><a href="/category">信眾服務</a></li>
-                  <li>&gt;</li>
-                  <li>信眾身份驗證</li>
-              </ol>
-          </nav>
-
-          <nav v-if="isProfilePage" aria-label="breadcrumb" class="border-b border-zinc-300 p-2 text-zinc-400 text-sm">
+          <nav aria-label="breadcrumb" class="border-b border-zinc-300 p-2 text-zinc-400 text-sm">
               <ol class="flex space-x-1">
                   <li><a href="/">首頁</a></li>
                   <li>&gt;</li>
@@ -22,19 +12,11 @@
                   <li>&gt;</li>
                   <li>信眾專區</li>
                   <li>&gt;</li>
-                  <li>基本資料</li>
-              </ol>
-          </nav>
-
-          <nav v-if="isReceivePage" aria-label="breadcrumb" class="border-b border-zinc-300 p-2 text-zinc-400 text-sm">
-              <ol class="flex space-x-1">
-                  <li><a href="/">首頁</a></li>
-                  <li>&gt;</li>
-                  <li><a href="/category">信眾服務</a></li>
-                  <li>&gt;</li>
-                  <li>信眾專區</li>
-                  <li>&gt;</li>
-                  <li>常用收件資料</li>
+                  <li v-if="isLoginPage">信眾身份驗證</li>
+                  <li v-if="isProfilePage">基本資料</li>
+                  <li v-if="isReceivePage">收件資料</li>
+                  <li v-if="isPrayforPage">祈福人資料</li>
+                  <li v-if="isOrderPage">購買資料</li>
               </ol>
           </nav>
 
@@ -58,7 +40,7 @@
                 <ul class="space-y-1 md:space-y-3 opacity-100 transition-all duration-300" ref="asideMenu">
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/profile')">基本資料</li>
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/receive')">收件資料</li>
-                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('#')">常用祈福人</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/prayfor')">祈福人資料</li>
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('#')">購買資料</li>
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('#')">登出</li>
                 </ul>
@@ -86,16 +68,17 @@ const asideMenu = ref(null);
 const isLoginPage = ref(true);
 const isProfilePage = ref(false);
 const isReceivePage = ref(false);
-
+const isPrayforPage = ref(false);
+const isOrderPage = ref(false);
 
 const toggleAsideMenu = () => {
-asideMenu.value.classList.toggle('hidden');
+    asideMenu.value.classList.toggle('hidden');
     asideMenu.value.classList.toggle('opacity-0');
     asideMenu.value.classList.toggle('opacity-100');
 }
 
 const resizeWindow = () => {
-    if (window.innerWidth > 768 && asideMenu.value.classList.contains('hidden')) {
+    if (window.innerWidth > 768 && asideMenu.value && asideMenu.value.classList.contains('hidden')) {
         asideMenu.value.classList.remove('hidden');
         asideMenu.value.classList.remove('opacity-0');
         asideMenu.value.classList.add('opacity-100');
@@ -107,6 +90,9 @@ const checkRoutePath = (newPath) => {
     isLoginPage.value = path === '/Member' || path === '/Member/';
     isProfilePage.value = path === '/Member/profile';
     isReceivePage.value = path === '/Member/receive';
+    isPrayforPage.value = path === '/Member/prayfor';
+    isOrderPage.value = path === '/Member/order';
+    
 }
 
 

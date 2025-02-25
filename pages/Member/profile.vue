@@ -1,6 +1,6 @@
 <template #content>
 
-    <div class="px-2 pt-1 pb-5 bg-white/75 shadow-md flex-auto md:px-8 md:pt-0">
+    <div class="px-2 pt-1 pb-5 bg-white/75 shadow-md md:col-span-4 md:px-8 md:pt-0">
 
         <h1 class="w-full text-center text-xl font-medium text-red-950 border-b pb-2 my-4 md:text-2xl">基本資料</h1>
 
