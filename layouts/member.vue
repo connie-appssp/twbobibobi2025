@@ -2,7 +2,7 @@
   <BaseLayout>
     <template #content>
 
-        <main class="mt-28 container mx-auto px-4">
+        <div class="mt-28 container mx-auto px-4">
             
           <nav v-if="isLoginPage" aria-label="breadcrumb" class="border-b border-zinc-300 p-2 text-zinc-400 text-sm">
               <ol class="flex space-x-1">
@@ -38,8 +38,8 @@
               </ol>
           </nav>
 
-          <div class="p-2 space-x-0 space-y-2 md:flex md:p-8 md:space-x-4 md:space-y-0">
-            <aside v-if="!isLoginPage" class="w-full h-fit md:w-64">
+          <div class="p-2 space-x-0 space-y-2 md:grid md:grid-cols-5 md:p-8 md:space-x-4 md:space-y-0">
+            <aside v-if="!isLoginPage" class="w-full h-fit">
               <nav class="rounded text-zinc-500 bg-white/75 shadow-md px-2 md:p-8 flex flex-col">
                 <button type="button" class="md:hidden self-end relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/75 focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset " aria-controls="mobile-menu" aria-expanded="false"
                   v-on:click="toggleAsideMenu">
@@ -70,7 +70,7 @@
 
           </div>
 
-        </main>
+        </div>
       
     </template>
   </BaseLayout>

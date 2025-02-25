@@ -1,9 +1,20 @@
 <template #content>
 
-    <div class="px-2 pt-1 pb-5 bg-white/75 shadow-md flex-auto md:px-8 md:pt-0">
+    <div class="px-2 pt-1 pb-5 bg-white/75 shadow-md md:col-span-4 md:px-8 md:pt-0">
 
         <h1 class="w-full text-center text-xl font-medium text-red-950 border-b pb-2 my-4 md:text-2xl">收件資料</h1>
 
+<<<<<<< Updated upstream
+=======
+        <div class="w-full mx-auto">
+
+            <table id="testTable" class="table table-striped table-hover m-0 w-full text-nowrap"></table>
+
+        </div>
+
+        <h1 class="w-full text-center text-xl font-medium text-red-950 border-b pb-2 my-4 md:text-2xl">收件資料</h1>
+
+>>>>>>> Stashed changes
         <div class="w-fit mx-auto space-y-2">
 
             <div class="w-fit flex items-center space-x-2">
@@ -83,6 +94,89 @@ const input = reactive({
     // name: '',
     // mobile: ''
 })
+
+let tableParams = null;
+let tableInst = null;
+let resReceiveList = [
+    {
+        dataid: 1,
+        name: '王大明',
+        zip: 500,
+        city: '彰化縣',
+        area: '彰化市',
+        street: '中正路一段',
+        isDefault: 0,
+    },
+    {
+        dataid: 1,
+        name: '王中明',
+        zip: 500,
+        city: '彰化縣',
+        area: '彰化市',
+        street: '中正路二段',
+        isDefault: 1,
+    },
+    {
+        dataid: 1,
+        name: '王小明',
+        zip: 500,
+        city: '彰化縣',
+        area: '彰化市',
+        street: '中正路三段',
+        isDefault: 0,
+    },
+]
+
+const setTableParams = () => {
+    return {
+        data: resReceiveList,
+        paging: false,
+        searching: false,
+        scrollX: true,
+        order: [[0, "desc"]],
+        columns:[
+            { data: 'dataid', title: '資料編號', visible: false },
+            
+            { 
+                data: 'isDefault', 
+                title: '預設',
+                // className: 'text-center w-20',
+                // render: (data, type, row, meta) => {
+                //     return define.parseDefaultToIcon(data);
+                // },
+                createdCell: (td, cellData, rowData, rowIndex, colIndex) => {
+                    const icon = cellData ? define.parseDefaultToIcon(cellData) : '';
+                    // console.log(td.html())
+                    
+                    $(td).html(icon);
+                }
+            },
+            { data: 'name', title: '姓名' },
+            { data: 'name', title: '電話' },
+            { data: 'zip', title: '地址-郵遞區號', visible: false },
+            { data: 'city', title: '地址-縣市', visible: false },
+            { data: 'area', title: '地址-地區', visible: false },
+            { data: 'street', title: '地址-街道', visible: false },
+            { 
+                data: null, 
+                title: '地址', 
+                render: (data, type, row, meta) => {
+                    return row.zip + row.city + row.area + row.street;
+                }
+            },
+        ],
+    }
+
+}
+
+
+const generateTable = (params, dom) => {
+    if (tableInst)
+        tableInst.destroy();
+    
+    tableInst = new DataTable(dom, params);
+    // $('#dataTablesButton').html(tableInst.button().container()); // buttons placement
+};
 
 const handleLogout = () => {
     authStore.logout()
