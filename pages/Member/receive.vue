@@ -6,7 +6,7 @@
 
         <div class="w-full mx-auto overflow-auto">
 
-            <table id="testTable" class="table table-striped table-hover m-0 text-nowrap" style="width: 100%;"></table>
+            <table id="testTable" class="table table-striped table-hover m-0 text-nowrap text-center" style="width: 100%;"></table>
 
         </div>
 

@@ -6,6 +6,7 @@ export default {
       './layouts/**/*.vue',
       // './plugins/**/*.js',
       // './nuxt.config.ts',
+      './assets/css/plugins/dataTables.tailwindcss.css'
     ],
     theme: {
       extend: {
