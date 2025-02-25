@@ -4,8 +4,6 @@
 
         <h1 class="w-full text-center text-xl font-medium text-red-950 border-b pb-2 my-4 md:text-2xl">收件資料</h1>
 
-<<<<<<< Updated upstream
-=======
         <div class="w-full mx-auto">
 
             <table id="testTable" class="table table-striped table-hover m-0 w-full text-nowrap"></table>
@@ -14,7 +12,6 @@
 
         <h1 class="w-full text-center text-xl font-medium text-red-950 border-b pb-2 my-4 md:text-2xl">收件資料</h1>
 
->>>>>>> Stashed changes
         <div class="w-fit mx-auto space-y-2">
 
             <div class="w-fit flex items-center space-x-2">
