@@ -4,9 +4,9 @@
 
         <h1 class="w-full text-center text-xl font-medium text-red-950 border-b pb-2 my-4 md:text-2xl">收件資料</h1>
 
-        <div class="w-full mx-auto">
+        <div class="w-full mx-auto overflow-auto">
 
-            <table id="testTable" class="table table-striped table-hover m-0 w-full text-nowrap"></table>
+            <table id="testTable" class="table table-striped table-hover m-0 text-nowrap" style="width: 100%;"></table>
 
         </div>
 
@@ -139,7 +139,6 @@ const setTableParams = () => {
         data: resReceiveList,
         paging: false,
         searching: false,
-        scrollX: true,
         order: [[0, "desc"]],
         columns:[
             { data: 'dataid', title: '資料編號', visible: false },
@@ -158,8 +157,8 @@ const setTableParams = () => {
                     $(td).html(icon);
                 }
             },
-            { data: 'name', title: '姓名' },
-            { data: 'name', title: '電話' },
+            { data: 'name', title: '姓名', className: 'text-center w-20' },
+            { data: 'name', title: '電話', className: 'text-center w-20' },
             { data: 'zip', title: '地址-郵遞區號', visible: false },
             { data: 'city', title: '地址-縣市', visible: false },
             { data: 'area', title: '地址-地區', visible: false },
