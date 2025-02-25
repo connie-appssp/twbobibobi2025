@@ -18,7 +18,8 @@ export default defineNuxtConfig({
     '~/assets/css/tailwind.css',
     '~/assets/css/global.css',
     '~/assets/css/layouts/Header.css',
-    '~/assets/css/layouts/Footer.css'
+    '~/assets/css/layouts/Footer.css',
+    "~/assets/css/plugins/dataTables.tailwindcss.css"
   ],
   postcss: {
     plugins: {
