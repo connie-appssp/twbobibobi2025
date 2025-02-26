@@ -1,5 +1,5 @@
 <template #content>
-    <div class="p-2 md:p-8 bg-white/75 shadow-md md:col-start-2 md:col-span-3 space-y-4">
+    <div class="p-2 md:p-8 bg-white/75 shadow-md md:col-start-2 md:col-span-3 space-y-4" v-cloak>
 
         <h1 class="w-full text-center text-xl font-medium text-red-950 md:text-2xl">信眾身份驗證</h1>
 
