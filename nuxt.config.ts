@@ -7,7 +7,13 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
-      ]
+      ],
+      script: [
+        {
+          src: '/lib/fontAwesome/js/all.min.js',
+          async: true,
+        }
+      ],
     }
   },
   modules: [
@@ -21,6 +27,7 @@ export default defineNuxtConfig({
     '~/assets/css/layouts/Footer.css',
     "~/assets/css/plugins/dataTables.tailwindcss.css"
   ],
+  
   postcss: {
     plugins: {
       tailwindcss: {},
