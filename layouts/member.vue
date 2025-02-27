@@ -15,7 +15,6 @@
                   <li v-if="isLoginPage">信眾身份驗證</li>
                   <li v-if="isProfilePage">基本資料</li>
                   <li v-if="isReceivePage">收件資料</li>
-                  <li v-if="isBuyerPage">購買人資料</li>
                   <li v-if="isPrayforPage">祈福人資料</li>
                   <li v-if="isOrderPage">購買資料</li>
               </ol>
@@ -41,12 +40,11 @@
                 <ul class="space-y-1 md:space-y-3 opacity-100 transition-all duration-300" ref="asideMenu">
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/profile')">基本資料</li>
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/receive')">收件資料</li>
-                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/buyer')">購買人資料</li>
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/prayfor')">祈福人資料</li>
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/order')">購買資料</li>
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('#')">登出</li>
                 </ul>
-
+              
               </nav>
             </aside>
 
@@ -70,7 +68,6 @@ const asideMenu = ref(null);
 const isLoginPage = ref(true);
 const isProfilePage = ref(false);
 const isReceivePage = ref(false);
-const isBuyerPage = ref(false);
 const isPrayforPage = ref(false);
 const isOrderPage = ref(false);
 
@@ -93,7 +90,6 @@ const checkRoutePath = (newPath) => {
     isLoginPage.value = path === '/Member' || path === '/Member/';
     isProfilePage.value = path === '/Member/profile';
     isReceivePage.value = path === '/Member/receive';
-    isBuyerPage.value = path === '/Member/buyer';
     isPrayforPage.value = path === '/Member/prayfor';
     isOrderPage.value = path === '/Member/order';
     

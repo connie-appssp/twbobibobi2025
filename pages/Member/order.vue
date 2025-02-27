@@ -146,13 +146,35 @@
 
                         <div class="col-span-12 border-b border-zinc-100"></div>
 
+                        <div class="col-span-12 border-b border-zinc-100"></div>
+                        
+                        <div class="col-span-4 md:col-span-3 text-zinc-500">
+                            <div class="px-2">閏月</div>
+                        </div>
+                        <div class="col-span-8 md:col-span-9">
+                            {{define.parseIsLeap()[detailData.isLeap]}}
+                        </div>
+
+                        <div class="col-span-12 border-b border-zinc-100"></div>
+
+                        <div class="col-span-12 border-b border-zinc-100"></div>
+                        
+                        <div class="col-span-4 md:col-span-3 text-zinc-500">
+                            <div class="px-2">電子信箱</div>
+                        </div>
+                        <div class="col-span-8 md:col-span-9">
+                            {{detailData.email}}
+                        </div>
+
+                        <div class="col-span-12 border-b border-zinc-100"></div>
+
                     </div>
                     <div class="h-8 py-2 border-t flex justify-end" ref="modalFooter">
                         <div>
                             <button type="button" 
                                 class="bg-red-950 text-white px-2 py-1 rounded-lg hover:bg-yellow-950 transition disabled:opacity-50"
                                 ref="sendVerifyCodeBtn"
-                                v-on:click='showDetailModal=false' disabled>
+                                v-on:click='showDetailModal=false'>
                                 關閉
                             </button>
                         </div>
@@ -202,6 +224,12 @@ const define = {
             1: '已付款',
             2: '未付款'
         }
+    },
+    parseIsLeap: () => {
+        return {
+            0: '非閏月',
+            1: '閏月'
+        }
     }
 };
 
@@ -230,11 +258,11 @@ let resOrderList = reactive([
     {
         parentId: 0,
         dataid: 1,
-        dateOrNo: '2024-02-09',
-        buyOrPray: '王大明他媽',
+        date: '2024-02-09',
+        buyer: '王大明他媽',
         mobile: '0900111222',
-        templeOrService: '桃園威天宮',
-        totalOrPrice: 5880,
+        temple: '桃園威天宮',
+        total: 5880,
         payStatus: 1,
         products: [
             {
@@ -249,6 +277,8 @@ let resOrderList = reactive([
                 street: '中正路二段',
                 lunarBirth: '民國60年3月7日',
                 solorBirth: '民國60年4月8日',
+                isLeap: 0,
+                email: 'abc@example.com',
                 service: 1,
                 price: 600
             },
@@ -264,6 +294,8 @@ let resOrderList = reactive([
                 street: '中正路二段',
                 lunarBirth: '民國60年3月7日',
                 solorBirth: '民國60年4月8日',
+                isLeap: 0,
+                email: 'abc@example.com',
                 service: 4,
                 price: 4280
             },
@@ -272,11 +304,11 @@ let resOrderList = reactive([
     {
         parentId: 0,
         dataid: 2,
-        dateOrNo: '2024-02-05',
-        buyOrPray: '王大明',
+        date: '2024-02-05',
+        buyer: '王大明',
         mobile: '0900111222',
-        templeOrService: '西螺福興宮',
-        totalOrPrice: 2400,
+        temple: '西螺福興宮',
+        total: 2400,
         payStatus: 1,
         products: [
             {
@@ -291,6 +323,8 @@ let resOrderList = reactive([
                 street: '中正路二段',
                 lunarBirth: '民國60年3月7日',
                 solorBirth: '民國60年4月8日',
+                isLeap: 0,
+                email: 'abc@example.com',
                 service: 1,
                 price: 600
             },
@@ -306,6 +340,8 @@ let resOrderList = reactive([
                 street: '中正路二段',
                 lunarBirth: '民國60年3月7日',
                 solorBirth: '民國60年4月8日',
+                isLeap: 1,
+                email: 'abc@example.com',
                 service: 2,
                 price: 600
             },
@@ -321,6 +357,8 @@ let resOrderList = reactive([
                 street: '中正路二段',
                 lunarBirth: '民國60年3月7日',
                 solorBirth: '民國60年4月8日',
+                isLeap: 0,
+                email: 'abc@example.com',
                 service: 3,
                 price: 1200
             },
@@ -329,11 +367,11 @@ let resOrderList = reactive([
     {
         parentId: 0,
         dataid: 3,
-        dateOrNo: '2024-01-26',
-        buyOrPray: '王大明他爸',
+        date: '2024-01-26',
+        buyer: '王大明他爸',
         mobile: '0900111222',
-        templeOrService: '大甲鎮瀾宮',
-        totalOrPrice: 620,
+        temple: '大甲鎮瀾宮',
+        total: 620,
         payStatus: 1,
         products: [
             {
@@ -348,6 +386,8 @@ let resOrderList = reactive([
                 street: '中正路二段',
                 lunarBirth: '民國60年3月7日',
                 solorBirth: '民國60年4月8日',
+                isLeap: 0,
+                email: 'abc@example.com',
                 service: 2,
                 price: 620
             },
@@ -376,10 +416,10 @@ const GetOrderList = async () => {
 
 
 const setDetailData = (parentInfo, childInfo) => {
-    detailData.buyer = parentInfo.buyOrPray;
+    detailData.buyer = parentInfo.buyer;
     detailData.buyerMobile = parentInfo.mobile;
-    detailData.temple = parentInfo.templeOrService;
-    detailData.payDate = parentInfo.dateOrNo;
+    detailData.temple = parentInfo.temple;
+    detailData.payDate = parentInfo.date;
     detailData.payStatus = parentInfo.payStatus;
 
     detailData.orderNo = childInfo.orderNo;
@@ -390,6 +430,8 @@ const setDetailData = (parentInfo, childInfo) => {
     detailData.prayForAddress = childInfo.zip + childInfo.city + childInfo.area + childInfo.street;
     detailData.lunarBirth = childInfo.lunarBirth;
     detailData.solarBirth = childInfo.solorBirth;
+    detailData.isLeap = childInfo.isLeap;
+    detailData.email = childInfo.email;
 }
 
 const clearChild = () => {
@@ -413,10 +455,10 @@ const addGroupDataRow = (parentInfo) => {
         const columnsData = {
             parentId: child.parentId,
             dataid: child.dataid,
-            dateOrNo: child.orderNo,
-            buyOrPray: child.prayFor,
-            templeOrService: child.service,
-            totalOrPrice: child.price,
+            date: child.orderNo,
+            buyer: child.prayFor,
+            temple: child.service,
+            total: child.price,
             detail: detailBtn,
         };
 
@@ -429,7 +471,7 @@ const addGroupDataRow = (parentInfo) => {
 
             if (item[0] === 'parentId') td.innerHTML = '└';
             else if (item[0] === 'detail') td.appendChild(item[1]);
-            else if (item[0] === 'templeOrService') td.innerHTML = define.parseService()[item[1]];
+            else if (item[0] === 'temple') td.innerHTML = define.parseService()[item[1]];
             else td.innerHTML = item[1];
 
             
@@ -572,10 +614,10 @@ const setTableParams = () => {
                 },
             },
             { data: 'dataid', title: '', visible: false },
-            { data: 'dateOrNo', title: '購買日期<br>/訂單編號' },
-            { data: 'buyOrPray', title: '購買人<br>/祈福人' },
-            { data: 'templeOrService', title: '宮廟<br>/服務項目' },
-            { data: 'totalOrPrice', title: '總額<br>/服務金額' },
+            { data: 'date', title: '購買日期<br>/訂單編號' },
+            { data: 'buyer', title: '購買人<br>/祈福人' },
+            { data: 'temple', title: '宮廟<br>/服務項目' },
+            { data: 'total', title: '總額<br>/服務金額' },
             { 
                 data: null, 
                 title: '詳細',
