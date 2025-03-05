@@ -36,6 +36,11 @@ export default defineNuxtConfig({
   },
   vite: {
     server: {
+      allowedHosts: [
+        'twbobi2025web.southeastasia.azurecontainer.io',  // 允許來自這個主機的請求
+        // 'localhost',  // 如果需要，可以將 localhost 加入白名單
+        // '127.0.0.1',  // 同理，如果需要，可以加入本機 IP
+      ],
       watch: {
         usePolling: true, // 確保在某些環境（如 WSL、Docker）即時更新
       },
