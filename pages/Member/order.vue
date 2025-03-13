@@ -145,8 +145,6 @@
                         </div>
 
                         <div class="col-span-12 border-b border-zinc-100"></div>
-
-                        <div class="col-span-12 border-b border-zinc-100"></div>
                         
                         <div class="col-span-4 md:col-span-3 text-zinc-500">
                             <div class="px-2">閏月</div>
@@ -154,8 +152,6 @@
                         <div class="col-span-8 md:col-span-9">
                             {{define.parseIsLeap()[detailData.isLeap]}}
                         </div>
-
-                        <div class="col-span-12 border-b border-zinc-100"></div>
 
                         <div class="col-span-12 border-b border-zinc-100"></div>
                         

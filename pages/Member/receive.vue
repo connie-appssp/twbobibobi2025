@@ -168,20 +168,6 @@ const setTableParams = () => {
         columns:[
             { data: 'dataid', title: '資料編號', visible: false },
             
-            { 
-                data: 'isDefault', 
-                title: '預設',
-                className: 'text-center w-20',
-                // render: (data, type, row, meta) => {
-                //     return define.parseDefaultToIcon(data);
-                // },
-                createdCell: (td, cellData, rowData, rowIndex, colIndex) => {
-                    const icon = cellData ? define.parseDefaultToIcon(cellData) : '';
-                    // console.log(td.html())
-                    
-                    $(td).html(icon);
-                }
-            },
             { data: 'name', title: '姓名', className: 'text-center w-20' },
             { data: 'name', title: '電話', className: 'text-center w-20' },
             { data: 'zip', title: '地址-郵遞區號', visible: false },
@@ -194,6 +180,20 @@ const setTableParams = () => {
                 className: 'text-left',
                 render: (data, type, row, meta) => {
                     return row.zip + row.city + row.area + row.street;
+                }
+            },
+            { 
+                data: 'isDefault', 
+                title: '預設',
+                className: 'text-center w-20',
+                // render: (data, type, row, meta) => {
+                //     return define.parseDefaultToIcon(data);
+                // },
+                createdCell: (td, cellData, rowData, rowIndex, colIndex) => {
+                    const icon = cellData ? define.parseDefaultToIcon(cellData) : '';
+                    // console.log(td.html())
+                    
+                    $(td).html(icon);
                 }
             },
         ],
