@@ -84,26 +84,26 @@
         <!-- todo: needs transfer from style setting to tailwindcss class name  -->
         <div class="w-full text-center text-3xl text-red-900 mt-3" 
             style="background-image: linear-gradient(to right, rgba(0,0,0, 0),rgba(171, 131, 12, 0.2),rgba(0, 0, 0, 0))"
-        >- 當前活動 -</div>
+        >- 資訊專區 -</div>
         
         <div class="h-fit w-[80vw] grid gap-4 mt-5 sm:grid-cols-2 lg:grid-cols-4">
           
-          <div v-for='(item, index) in activities' :key="item.title+index" class="border border-zinc-100 flex flex-col shadow-md p-3 space-y-5 bg-gradient-to-b from-white/80 from-0% via-white via-40% to-white to-100% group cursor-pointer">
+          <div v-for='(item, index) in activities' :key="item.title+index" class="border border-zinc-100 flex flex-col shadow-md bg-gradient-to-b from-white/80 from-0% via-white via-40% to-white to-100% group cursor-pointer">
             
             <div class="w-full aspect-square bg-orange-100">
               <img :src="item.img" class="w-full" />
             </div>
 
-            <div class="h-[70px] w-full relative text-2xl font-bold overflow-hidden tracking-widest grow-0 lg:text-xl">
+            <div class="h-[70px] w-full relative text-2xl font-bold overflow-hidden tracking-widest grow-0 p-3 lg:text-xl">
               {{item.title}}
               <div class="h-[70px] w-full absolute top-0 left-0 bg-gradient-to-b from-white/0 from-0% via-white/0 via-70% to-white to-100%"></div>
             </div>
 
-            <div class="w-full tracking-wide flex-1 text-zinc-400">
+            <div class="w-full tracking-wide flex-1 text-zinc-400 p-3">
               {{item.caption}}
             </div>
 
-            <div class="w-full justify-items-end">
+            <div class="w-full justify-items-end p-3">
               <div class="w-fit px-3 border border-zinc-100 text-zinc-400 text-xs rounded-full group-hover:bg-zinc-600 group-hover:text-white transition duration-700">詳情</div>
             </div>
 

@@ -1,21 +1,36 @@
 <template>
-    <header class="w-full top-0 left-0 pb-1 transition-all duration-500 z-[9999]" ref="header">
+    <header class="w-full top-0 left-0 pb-1" ref="header">
         <nav class="bg-transparent mx-auto max-w-7x relative">
-            <div class="space-x-[-1.8rem] sm:space-x-[1.5rem] md:space-x-[3rem] lg:space-x-[5rem] xl:space-x-[7.5rem] 
-                        flex justify-center place-items-center text-center text-red-950 text-lg font-medium text-nowrap">
-                <div v-if="showLogo" class="scale-[80%] sm:scale-[80%] md:scale-100 transition-all duration-500 m-0">
+            <div class="space-x-[-1.8rem] sm:space-x-[1.5rem] md:space-x-[3rem] lg:space-x-[5rem] xl:space-x-[7.5rem] flex justify-center place-items-center text-center text-red-950 text-lg font-medium text-nowrap">
+
+                <div v-for="item, index in menuList" :key="'menu'+index" ref="menu" class="scale-[50%] sm:scale-[80%] md:scale-100">
+                    <a :href="item.link" >
+                        <img :src="item.img" :alt="item.alt" :title="item.title" />
+                        <span class="text-[1.4rem] md:text-[1.1rem]">{{item.text}}</span>
+                    </a>
+                </div>
+
+            </div>
+        </nav>
+
+        <nav v-if="isIndexPage" class="w-full fixed top-0 -translate-y-[110px] mx-auto max-w-7x bg-[url(/img/bg/footBg.jpg)] bg-no-repeat bg-bottom bg-cover transition-all duration-700 z-[9999]" ref="scrollMenu">
+            <div class="space-x-[-1.8rem] sm:space-x-[1.5rem] md:space-x-[3rem] lg:space-x-[5rem] xl:space-x-[7.5rem] flex justify-center place-items-center text-center text-red-950 text-lg font-medium text-nowrap">
+
+                <div class="scale-[80%] sm:scale-[80%] md:scale-100 m-0">
                     <a href="https://bobibobi.tw/Temples/temple.aspx" title="合作宮廟">
                         <img class="w-full" src="/img/logo/logo_small.png" alt="保必保庇線上點燈祈福平台" title="保必保庇線上點燈祈福平台" />
                     </a>
                 </div>
-                <div v-for="item, index in menuList" :key="'menu'+index" ref="menu" class="scale-[50%] sm:scale-[80%] md:scale-100 transition-all duration-500">
-                    <a :href="item.link" >
+                <div v-for="item, index in menuList" :key="'menu'+index" ref="menu" class="scale-[50%] sm:scale-[80%] md:scale-100">
+                    <a :href="item.link">
                         <img :src="item.img" :alt="item.alt" :title="item.title" />
-                        <span class="text-[1.4rem] md:text-[1.1rem] transition-all duration-500">{{item.text}}</span>
+                        <span class="text-[1.4rem] md:text-[1.1rem]">{{item.text}}</span>
                     </a>
                 </div>
+
             </div>
         </nav>
+
 
         <div class="tracking-wider space-y-2 w-fit h-fit m-auto absolute top-0 left-0 right-0 bottom-0 hidden" ref="submenu">
             <div class="rounded-full text-red-950 border border-red-950 w-fit py-1 px-3">訂單查詢</div>
@@ -33,10 +48,11 @@ import { ref, reactive, onMounted, nextTick } from 'vue'
 const activeSubmenu = false; // 確認是否啟用網站子選單
 
 const route = useRoute();
-const isIndexPage = route.path === '/';
+const isIndexPage = ref(route.path === '/');
 
 const header = ref(null); // Dom Ref
 const menu = ref(null); // Dom Ref
+const scrollMenu = ref(null); // Dom Ref
 const submenu = ref(null); // Dom Ref
 
 const showLogo = ref(false);
@@ -103,12 +119,15 @@ const relativeHeader = () => {
 
 const scrollHandler = () => {
     if (window.scrollY > 0) {
-        fixedHeader();
-        addHeaderBg();
+        // fixedHeader();
+        // addHeaderBg();
+
+        scrollMenu.value?.classList.add('translate-y-0');
         showLogo.value = true;
     } else {
-        relativeHeader();
-        removeHeaderBg();
+        // relativeHeader();
+        // removeHeaderBg();
+        scrollMenu.value?.classList.remove('translate-y-0');
         showLogo.value = false;
     }
 }
@@ -146,7 +165,7 @@ const menuHandler = () => {
 
 onMounted(async () => {
     await nextTick();
-    menuHandler();
+    // menuHandler();
     scrollHandler();
 
     if (isIndexPage) {
@@ -155,9 +174,9 @@ onMounted(async () => {
     }
 
     if (!isIndexPage) {
-        addHeaderBg();
-        fixedHeader();
-        showLogo.value = true;
+        // addHeaderBg();
+        // fixedHeader();
+        // showLogo.value = true;
     }
 
 })
