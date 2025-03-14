@@ -1,5 +1,5 @@
 <template>
-    <header class="w-full top-0 left-0 pb-1 transition-all duration-500" ref="header">
+    <header class="w-full top-0 left-0 pb-1 transition-all duration-500 z-[9999]" ref="header">
         <nav class="bg-transparent mx-auto max-w-7x relative">
             <div class="space-x-[-1.8rem] sm:space-x-[1.5rem] md:space-x-[3rem] lg:space-x-[5rem] xl:space-x-[7.5rem] 
                         flex justify-center place-items-center text-center text-red-950 text-lg font-medium text-nowrap">
@@ -17,7 +17,7 @@
             </div>
         </nav>
 
-        <div class="tracking-wider space-y-2 w-fit h-fit m-auto absolute top-0 left-0 right-0 bottom-0 hidden -z-10" ref="submenu">
+        <div class="tracking-wider space-y-2 w-fit h-fit m-auto absolute top-0 left-0 right-0 bottom-0 hidden" ref="submenu">
             <div class="rounded-full text-red-950 border border-red-950 w-fit py-1 px-3">訂單查詢</div>
             <div class="rounded-full text-red-950 border border-red-950 w-fit py-1 px-3">信眾服務</div>
         </div>

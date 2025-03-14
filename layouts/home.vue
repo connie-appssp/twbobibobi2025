@@ -2,9 +2,9 @@
   <BaseLayout>
     <template #content>
 
-        <main>
+        <!-- <main> -->
           <slot />  <!-- 這裡顯示頁面內容 -->
-        </main>
+        <!-- </main> -->
       
     </template>
   </BaseLayout>
