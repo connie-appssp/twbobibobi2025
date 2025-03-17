@@ -34,7 +34,7 @@
     </section>
 
 
-    
+    <!-- 當前活動 start -->
     <section>
       <div class="d-flex place-items-center mt-[5rem]">
         <div class="w-fit">
@@ -74,7 +74,8 @@
 
     </section>
 
-    
+
+    <!-- 資訊專區 start -->
     <section>
       <div class="d-flex place-items-center mt-[5rem]">
         <div class="w-fit">
@@ -88,15 +89,15 @@
         
         <div class="h-fit w-[80vw] grid gap-4 mt-5 sm:grid-cols-2 lg:grid-cols-4">
           
-          <div v-for='(item, index) in activities' :key="item.title+index" class="border border-zinc-100 flex flex-col shadow-md bg-gradient-to-b from-white/80 from-0% via-white via-40% to-white to-100% group cursor-pointer">
+          <div v-for='(item, index) in columns' :key="item.title+index" class="border border-zinc-100 flex flex-col shadow-md bg-white/80 group cursor-pointer">
             
-            <div class="w-full aspect-square bg-orange-100">
+            <div class="w-full aspect-video bg-orange-100">
               <img :src="item.img" class="w-full" />
             </div>
 
-            <div class="h-[70px] w-full relative text-2xl font-bold overflow-hidden tracking-widest grow-0 p-3 lg:text-xl">
+            <div class="h-[50px] w-full relative text-2xl font-bold overflow-hidden tracking-widest grow-0 p-3 lg:text-xl">
               {{item.title}}
-              <div class="h-[70px] w-full absolute top-0 left-0 bg-gradient-to-b from-white/0 from-0% via-white/0 via-70% to-white to-100%"></div>
+              <div class="h-[50px] w-full absolute top-0 left-0 bg-gradient-to-b from-white/0 from-0% via-white/0 via-70% to-white to-100%"></div>
             </div>
 
             <div class="w-full tracking-wide flex-1 text-zinc-400 p-3">
@@ -114,6 +115,34 @@
 
     </section>
 
+    
+    <!-- 新聞報導 start -->
+    <section>
+      <div class="d-flex place-items-center mt-[5rem]">
+        <div class="w-fit">
+          <img src="/img/obj/roof.png" class="w-[200px]" />
+        </div>
+
+        <!-- todo: needs transfer from style setting to tailwindcss class name  -->
+        <div class="w-full text-center text-3xl text-red-900 mt-3" 
+            style="background-image: linear-gradient(to right, rgba(0,0,0, 0),rgba(171, 131, 12, 0.2),rgba(0, 0, 0, 0))"
+        >- 新聞報導 -</div>
+        
+        <div class="h-fit w-[80vw] grid gap-4 mt-5 sm:grid-cols-2">
+          
+          <div v-for="(item, index) in news" :key="item.title+index" class="border border-zinc-100 p-3 space-y-2 flex flex-col shadow-md bg-white/80 group cursor-pointer">
+            <div class="text-xl font-bold tracking-wide">{{item.title}}</div>
+            <div class="tracking-wide flex-1 text-zinc-500">{{item.caption}}</div>
+            <div class="w-full justify-items-end p-3">
+              <div class="w-fit px-3 py-1 border border-zinc-100 text-zinc-400 text-xs rounded-full group-hover:bg-zinc-600 group-hover:text-white transition duration-700">更多新聞內容</div>
+            </div>
+          </div>
+          
+        </div>
+
+      </div>
+
+    </section>
 
 
   </div>
@@ -143,7 +172,6 @@ definePageMeta({
   // middleware: 'auth'
 });
 
-
 const activities = reactive([
   {
     img: 'https://bobibobi.tw/Temples/SiteFile/News/20241029_NewsImg_s.jpg',
@@ -171,6 +199,52 @@ const activities = reactive([
   },
 ])
 
+
+const columns = reactive([
+  {
+    img: 'https://bobibobi.tw/Temples/SiteFile/light/40.jpeg',
+    title: '蛇年十二生肖運勢',
+    caption: '2025年是乙巳蛇年，乙木與巳火結合，木火相生，這一年不同生肖的運勢會受到「蛇」 這個生肖以及天干地支的影響。',
+  },
+  {
+    img: 'https://bobibobi.tw/Temples/SiteFile/light/38.jpeg',
+    title: '光明燈',
+    caption: '點光明燈的目的在於祈求光明、智慧與平安，尤其在運勢低迷或犯太歲的年份 ，會選擇點光明燈以消災解厄。',
+  },
+  {
+    img: 'https://bobibobi.tw/Temples/SiteFile/light/39.jpeg',
+    title: '太歲燈',
+    caption: '在特定年份犯太歲或希望增強運勢的人。點太歲燈的目的是化解流年不利、增旺福祿壽禧，祈求平安順遂。',
+  },
+  {
+    img: 'https://bobibobi.tw/Temples/SiteFile/light/41.jpg',
+    title: '補財庫',
+    caption: '透過向財神與城隍爺祈求補足財庫缺漏，修復財富流通，扭轉財運、吸引財氣，為事業、投資帶來更多保障。',
+  },
+])
+
+const news = reactive([
+  {
+    title: '遠見 | 光明燈是什麼？「線上點燈」有用嗎？想求財、求順遂該去哪間廟？',
+    caption: '伴隨農曆新年即將到來，財神燈、太歲燈、平安燈等傳統祈福點燈儀式也跟著活絡，然而2020年以後因為新冠疫情影響，民眾生活習慣也從宮廟點燈，轉移為線上點燈。',
+    link: 'https://www.gvm.com.tw/article/118470',
+  },
+  {
+    title: 'ETtoday新聞雲 | 保必保庇攜手大甲鎮瀾宮線上點燈服務邁入第四年',
+    caption: '國內知名的宗教科技平台「保必保庇」與全臺代表性媽祖信仰中心大甲鎮瀾宮攜手合作的線上點燈服務，正式邁入第四年。這項創新的合作計畫自推出以來，深受全球信徒支持與肯定，為傳統宗教儀式注入科技活力，同時帶動信仰文化的數位化轉型。',
+    link: 'https://www.ettoday.net/news/20241224/2879589.htm',
+  },
+  {
+    title: '今周刊 | 光明燈何時點？大甲鎮瀾宮、新港奉天宮…11所廟宇5步驟「免人擠人」',
+    caption: '「過往如果是親自在過年期間跑一趟廟宇點燈，不計算車程，光排隊可能就要2、3小時，現在用線上點燈，可以省下車程與排隊的時間。」新薪網元科技股份有限公司（保必保庇線上宮廟）執行長王耀賢這樣說明過去信徒在過年期間面對的痛點。',
+    link: 'https://www.businesstoday.com.tw/article/category/183027/post/202501060023/',
+  },
+  {
+    title: 'udn聯合新聞網 | 農曆春節「線上點燈」商機爆發！業者曝求姻緣、財運推薦廟宇',
+    caption: '熱門的大廟常因點燈人潮而擠得水洩不通，又或距離遙遠難以前往特定廟宇祈福，業者瞄準廟宇科儀的龐大線上商機，讓原本需要親臨現場的儀式，轉變成可在線上完成點燈、消災解厄等儀式。其中，新薪網元科技股份有限公司（保必保庇線上宮廟）就專注提供這樣的線上服務。',
+    link: 'https://udn.com/news/story/123907/8489460',
+  },
+])
 
 
 
