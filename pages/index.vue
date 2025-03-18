@@ -130,7 +130,7 @@
         
         <div class="h-fit w-[80vw] grid gap-4 mt-5 sm:grid-cols-2">
           
-          <div v-for="(item, index) in news" :key="item.title+index" class="border border-zinc-100 p-3 space-y-2 flex flex-col shadow-md bg-white/80 group cursor-pointer">
+          <div v-for="(item, index) in news" :key="item.title+index" class="border border-zinc-100 p-3 space-y-2 flex flex-col shadow-md backdrop-blur-sm group cursor-pointer">
             <div class="text-xl font-bold tracking-wide">{{item.title}}</div>
             <div class="tracking-wide flex-1 text-zinc-500">{{item.caption}}</div>
             <div class="w-full justify-items-end p-3">
@@ -140,6 +140,7 @@
           
         </div>
 
+        <div class="w-full text-center text-xs mt-5 text-zinc-500">●  ○</div>
       </div>
 
     </section>
@@ -234,16 +235,16 @@ const news = reactive([
     caption: '國內知名的宗教科技平台「保必保庇」與全臺代表性媽祖信仰中心大甲鎮瀾宮攜手合作的線上點燈服務，正式邁入第四年。這項創新的合作計畫自推出以來，深受全球信徒支持與肯定，為傳統宗教儀式注入科技活力，同時帶動信仰文化的數位化轉型。',
     link: 'https://www.ettoday.net/news/20241224/2879589.htm',
   },
-  {
-    title: '今周刊 | 光明燈何時點？大甲鎮瀾宮、新港奉天宮…11所廟宇5步驟「免人擠人」',
-    caption: '「過往如果是親自在過年期間跑一趟廟宇點燈，不計算車程，光排隊可能就要2、3小時，現在用線上點燈，可以省下車程與排隊的時間。」新薪網元科技股份有限公司（保必保庇線上宮廟）執行長王耀賢這樣說明過去信徒在過年期間面對的痛點。',
-    link: 'https://www.businesstoday.com.tw/article/category/183027/post/202501060023/',
-  },
-  {
-    title: 'udn聯合新聞網 | 農曆春節「線上點燈」商機爆發！業者曝求姻緣、財運推薦廟宇',
-    caption: '熱門的大廟常因點燈人潮而擠得水洩不通，又或距離遙遠難以前往特定廟宇祈福，業者瞄準廟宇科儀的龐大線上商機，讓原本需要親臨現場的儀式，轉變成可在線上完成點燈、消災解厄等儀式。其中，新薪網元科技股份有限公司（保必保庇線上宮廟）就專注提供這樣的線上服務。',
-    link: 'https://udn.com/news/story/123907/8489460',
-  },
+  // {
+  //   title: '今周刊 | 光明燈何時點？大甲鎮瀾宮、新港奉天宮…11所廟宇5步驟「免人擠人」',
+  //   caption: '「過往如果是親自在過年期間跑一趟廟宇點燈，不計算車程，光排隊可能就要2、3小時，現在用線上點燈，可以省下車程與排隊的時間。」新薪網元科技股份有限公司（保必保庇線上宮廟）執行長王耀賢這樣說明過去信徒在過年期間面對的痛點。',
+  //   link: 'https://www.businesstoday.com.tw/article/category/183027/post/202501060023/',
+  // },
+  // {
+  //   title: 'udn聯合新聞網 | 農曆春節「線上點燈」商機爆發！業者曝求姻緣、財運推薦廟宇',
+  //   caption: '熱門的大廟常因點燈人潮而擠得水洩不通，又或距離遙遠難以前往特定廟宇祈福，業者瞄準廟宇科儀的龐大線上商機，讓原本需要親臨現場的儀式，轉變成可在線上完成點燈、消災解厄等儀式。其中，新薪網元科技股份有限公司（保必保庇線上宮廟）就專注提供這樣的線上服務。',
+  //   link: 'https://udn.com/news/story/123907/8489460',
+  // },
 ])
 
 

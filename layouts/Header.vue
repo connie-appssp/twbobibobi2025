@@ -13,9 +13,10 @@
             </div>
         </nav>
 
-        <nav v-if="isIndexPage" class="w-full fixed top-0 -translate-y-[110px] mx-auto max-w-7x bg-[url(/img/bg/footBg.jpg)] bg-no-repeat bg-bottom bg-cover transition-all duration-700 z-[9999]" ref="scrollMenu">
+        <!-- <nav v-if="isIndexPage" class="w-full fixed top-0 -translate-y-[110px] mx-auto max-w-7x bg-[url(/img/bg/footBg.jpg)] bg-no-repeat bg-bottom bg-cover transition-all duration-700 z-[9999]" ref="scrollMenu"> -->
+        <nav v-if="isIndexPage" class="w-full fixed top-0 -translate-y-[110px] mx-auto max-w-7x bg-white/30 backdrop-blur-xl transition-all duration-700 z-[9999]" ref="scrollMenu">
             <div class="space-x-[-1.8rem] sm:space-x-[1.5rem] md:space-x-[3rem] lg:space-x-[5rem] xl:space-x-[7.5rem] flex justify-center place-items-center text-center text-red-950 text-lg font-medium text-nowrap">
-
+                
                 <div class="scale-[80%] sm:scale-[80%] md:scale-100 m-0">
                     <a href="https://bobibobi.tw/Temples/temple.aspx" title="合作宮廟">
                         <img class="w-full" src="/img/logo/logo_small.png" alt="保必保庇線上點燈祈福平台" title="保必保庇線上點燈祈福平台" />
