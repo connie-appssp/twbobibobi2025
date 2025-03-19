@@ -8,7 +8,7 @@
               <ol class="flex space-x-1">
                   <li><a href="/">首頁</a></li>
                   <li>&gt;</li>
-                  <li><a href="/category">信眾服務</a></li>
+                  <li><a href="/">信眾服務</a></li>
                   <li>&gt;</li>
                   <li>信眾專區</li>
                   <li>&gt;</li>

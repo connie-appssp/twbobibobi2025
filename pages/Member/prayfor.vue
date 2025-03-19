@@ -264,8 +264,48 @@ const setTableParams = () => {
                 // },
                 createdCell: (td, cellData, rowData, rowIndex, colIndex) => {
                     const button = document.createElement('button');
+                    const i = document.createElement('i');
                     button.classList.add('bg-red-950', 'text-white', 'px-2', 'py-1', 'rounded-lg', 'hover:bg-red-950/[.5]');
-                    button.textContent = '查看';
+                    i.classList.add('fa', 'fa-eye');
+                    button.append(i)
+
+                    // button.textContent = '查看';
+                    
+                    $(td).html(button);
+                }
+            },
+            { 
+                data: null, 
+                title: '編輯',
+                className: 'text-center w-20',
+                // render: (data, type, row, meta) => {
+                //     return define.parseDefaultToIcon(data);
+                // },
+                createdCell: (td, cellData, rowData, rowIndex, colIndex) => {
+                    const button = document.createElement('button');
+                    const i = document.createElement('i');
+                    button.classList.add('bg-red-950', 'text-white', 'px-2', 'py-1', 'rounded-lg', 'hover:bg-red-950/[.5]');
+                    i.classList.add('fa', 'fa-edit');
+                    button.append(i)
+                    // button.textContent = '查看';
+                    
+                    $(td).html(button);
+                }
+            },
+            { 
+                data: null, 
+                title: '刪除',
+                className: 'text-center w-20',
+                // render: (data, type, row, meta) => {
+                //     return define.parseDefaultToIcon(data);
+                // },
+                createdCell: (td, cellData, rowData, rowIndex, colIndex) => {
+                    const button = document.createElement('button');
+                    const i = document.createElement('i');
+                    button.classList.add('bg-red-500', 'text-white', 'px-2', 'py-1', 'rounded-lg', 'hover:bg-red-950/[.5]');
+                    i.classList.add('fa', 'fa-trash');
+                    button.append(i)
+                    // button.textContent = '查看';
                     
                     $(td).html(button);
                 }

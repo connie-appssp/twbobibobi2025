@@ -445,7 +445,7 @@ const addGroupDataRow = (parentInfo) => {
         const i = document.createElement('i');
 
         detailBtn.classList.add('bg-red-950', 'text-white', 'px-2', 'py-1', 'rounded-lg', 'hover:bg-red-950/[.5]');
-        i.classList.add('fa', 'fa-search');
+        i.classList.add('fa', 'fa-eye');
         detailBtn.append(i);
 
         const columnsData = {

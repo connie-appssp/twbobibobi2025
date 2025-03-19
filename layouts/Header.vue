@@ -14,7 +14,7 @@
         </nav>
 
         <!-- <nav v-if="isIndexPage" class="w-full fixed top-0 -translate-y-[110px] mx-auto max-w-7x bg-[url(/img/bg/footBg.jpg)] bg-no-repeat bg-bottom bg-cover transition-all duration-700 z-[9999]" ref="scrollMenu"> -->
-        <nav v-if="isIndexPage" class="w-full fixed top-0 -translate-y-[110px] mx-auto max-w-7x bg-white/30 backdrop-blur-xl transition-all duration-700 z-[9999]" ref="scrollMenu">
+        <nav class="w-full fixed top-0 -translate-y-[110px] mx-auto max-w-7x bg-white/10 backdrop-blur-md transition-all duration-700 z-[9999]" ref="scrollMenu">
             <div class="space-x-[-1.8rem] sm:space-x-[1.5rem] md:space-x-[3rem] lg:space-x-[5rem] xl:space-x-[7.5rem] flex justify-center place-items-center text-center text-red-950 text-lg font-medium text-nowrap">
                 
                 <div class="scale-[80%] sm:scale-[80%] md:scale-100 m-0">
@@ -46,7 +46,7 @@
 import { useRoute } from 'vue-router'
 import { ref, reactive, onMounted, nextTick } from 'vue'
 
-const activeSubmenu = false; // 確認是否啟用網站子選單
+const activeSubmenu = true; // 確認是否啟用網站子選單
 
 const route = useRoute();
 const isIndexPage = ref(route.path === '/');
@@ -135,15 +135,18 @@ const scrollHandler = () => {
 
 const menuHandler = () => {
     const showSubMenu = () => {
-        fixedHeader();
-        addHeaderBg();
-        header.value?.classList.add('h-full');
+        // // fixedHeader();
+        // // addHeaderBg();
+        
+        header.value?.classList.add('h-dvh', 'bg-white/30', 'backdrop-blur-sm');
         submenu.value?.classList.remove('hidden');
     }
     const hideSubMenu = () => {
         if (isIndexPage) {
             scrollHandler();
         }
+
+        header.value?.classList.remove('h-dvh', 'bg-white/30', 'backdrop-blur-sm');
         
         header.value?.classList.remove('h-full')
         submenu.value?.classList.add('hidden');
@@ -151,10 +154,12 @@ const menuHandler = () => {
         
         
     const toggleSubMenu = () => {
-        if (header.value?.classList.contains('h-full')) {
-            hideSubMenu();
-        } else {
+        if (header.value?.classList.contains('h-dvh')) {
             showSubMenu();
+            // hideSubMenu();
+        } else {
+            // showSubMenu();
+            hideSubMenu();
         }
     }
 
@@ -166,12 +171,12 @@ const menuHandler = () => {
 
 onMounted(async () => {
     await nextTick();
-    // menuHandler();
+    menuHandler();
     scrollHandler();
 
     if (isIndexPage) {
         // scroll event
-        window.addEventListener('scroll', scrollHandler);
+        // window.addEventListener('scroll', scrollHandler);
     }
 
     if (!isIndexPage) {
@@ -179,7 +184,7 @@ onMounted(async () => {
         // fixedHeader();
         // showLogo.value = true;
     }
-
+    window.addEventListener('scroll', scrollHandler);
 })
 
 

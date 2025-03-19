@@ -82,7 +82,6 @@
           <img src="/img/obj/roof.png" class="w-[200px]" />
         </div>
 
-        <!-- todo: needs transfer from style setting to tailwindcss class name  -->
         <div class="w-full text-center text-3xl text-red-900 mt-3" 
             style="background-image: linear-gradient(to right, rgba(0,0,0, 0),rgba(171, 131, 12, 0.2),rgba(0, 0, 0, 0))"
         >- 資訊專區 -</div>
@@ -123,19 +122,19 @@
           <img src="/img/obj/roof.png" class="w-[200px]" />
         </div>
 
-        <!-- todo: needs transfer from style setting to tailwindcss class name  -->
         <div class="w-full text-center text-3xl text-red-900 mt-3" 
             style="background-image: linear-gradient(to right, rgba(0,0,0, 0),rgba(171, 131, 12, 0.2),rgba(0, 0, 0, 0))"
         >- 新聞報導 -</div>
         
         <div class="h-fit w-[80vw] grid gap-4 mt-5 sm:grid-cols-2">
           
-          <div v-for="(item, index) in news" :key="item.title+index" class="border border-zinc-100 p-3 space-y-2 flex flex-col shadow-md backdrop-blur-sm group cursor-pointer">
-            <div class="text-xl font-bold tracking-wide">{{item.title}}</div>
-            <div class="tracking-wide flex-1 text-zinc-500">{{item.caption}}</div>
-            <div class="w-full justify-items-end p-3">
+          <div v-for="(item, index) in news" :key="item.title+index" class="border border-zinc-100 p-5 space-y-2 flex flex-col shadow-md backdrop-blur-sm group cursor-pointer">
+            <div class="w-full justify-items-end">
               <div class="w-fit px-3 py-1 border border-zinc-100 text-zinc-400 text-xs rounded-full group-hover:bg-zinc-600 group-hover:text-white transition duration-700">更多新聞內容</div>
             </div>
+            <div class="text-xl font-bold tracking-wide">{{item.title}}</div>
+            <div class="tracking-wide flex-1 text-zinc-500">{{item.caption}}</div>
+            
           </div>
           
         </div>
@@ -145,6 +144,54 @@
 
     </section>
 
+
+    <!-- 信眾服務 start -->
+    <section>
+      <div class="d-flex place-items-center mt-[5rem] bg-[url(/img/bg/indexServiceListBg.jpg)] bg-cover py-[3rem]">
+        <div class="w-fit">
+          <img src="/img/obj/roof.png" class="w-[200px]" />
+        </div>
+
+        <div class="w-full text-center text-3xl text-red-900 mt-3" 
+            style="background-image: linear-gradient(to right, rgba(0,0,0, 0),rgba(171, 131, 12, 0.2),rgba(0, 0, 0, 0))"
+        >- 信眾服務 -</div>
+        
+        <div class="h-fit w-90 grid gap-8 mt-5 p-10 sm:grid-cols-3">
+
+          <div class="text-3xl text-center px-11 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">祈福點燈</div>
+          <div class="text-3xl text-center px-11 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">中元普渡</div>
+          <div class="text-3xl text-center px-11 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">補財庫</div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    
+    <!-- 合作宮廟 start 
+    <section>
+      <div class="d-flex place-items-center mt-[5rem]">
+        <div class="w-fit">
+          <img src="/img/obj/roof.png" class="w-[200px]" />
+        </div>
+
+        <div class="w-full text-center text-3xl text-red-900 mt-3" 
+            style="background-image: linear-gradient(to right, rgba(0,0,0, 0),rgba(171, 131, 12, 0.2),rgba(0, 0, 0, 0))"
+        >- 合作宮廟 -</div>
+        
+        <div class="h-fit w-[80vw] grid gap-4 mt-5 sm:grid-cols-2 bg-[url(/img/bg/indexServiceListBg.jpg)]">
+          <div>
+
+          </div>
+
+        </div>
+
+        <div class="w-full text-center text-xs mt-5 text-zinc-500">●  ○</div>
+      </div>
+
+    </section>
+    -->
 
   </div>
 
@@ -246,7 +293,6 @@ const news = reactive([
   //   link: 'https://udn.com/news/story/123907/8489460',
   // },
 ])
-
 
 
 </script>
