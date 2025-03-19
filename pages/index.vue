@@ -158,9 +158,9 @@
         
         <div class="h-fit w-90 grid gap-8 mt-5 p-10 sm:grid-cols-3">
 
-          <div class="text-3xl text-center px-11 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">祈福點燈</div>
-          <div class="text-3xl text-center px-11 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">中元普渡</div>
-          <div class="text-3xl text-center px-11 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">補財庫</div>
+          <div class="text-xl md:text-3xl text-center px-10 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">祈福點燈</div>
+          <div class="text-xl md:text-3xl text-center px-10 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">中元普渡</div>
+          <div class="text-xl md:text-3xl text-center px-10 py-3 bg-[url(/img/obj/servicebox.svg)] bg-contain bg-center bg-no-repeat">補財庫</div>
 
         </div>
 
@@ -199,8 +199,8 @@
       <div>
         <h1 v-for="n in 50" :key="'item'+ n" >Welcome to the Home Page</h1>
         <div>
-          <NuxtLink to="/Member">會員登入</NuxtLink>
-          <NuxtLink to="/Member/profile">會員資料</NuxtLink>
+          <NuxtLink to="/member">會員登入</NuxtLink>
+          <NuxtLink to="/member/profile">會員資料</NuxtLink>
         </div>
       </div>
 

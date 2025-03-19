@@ -154,12 +154,12 @@ const handleLogin = () => {
         loginError.code = 1;
         loginError.msg = '登入成功，歡迎回來';
         authStore.login({mobile: mobile.value, name: '王大明'})
-        useRouter().push('/Member/profile') // 跳轉到會員資料頁
+        useRouter().push('/member/profile') // 跳轉到會員資料頁
     } else if (mobile.value === '0912345678') {
         loginError.code = 1;
         loginError.msg = '登入成功，歡迎加入';
         authStore.login({mobile: mobile.value, name: '王小明'})
-        useRouter().push('/Member/profile') // 跳轉到會員資料頁
+        useRouter().push('/member/profile') // 跳轉到會員資料頁
     } else {
         loginError.code = 2;
         loginError.msg = '手機號碼不存在';

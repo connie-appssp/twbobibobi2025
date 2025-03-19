@@ -258,13 +258,13 @@ const openFormModal = () => {
 
 const handleLogout = () => {
     authStore.logout()
-    useRouter().push('/Member')
+    useRouter().push('/member')
 }
 
 onMounted(() => {
     console.log('receive', authStore)
     if (!authStore.isLoggedIn) {
-        useRouter().push('/Member')
+        useRouter().push('/member')
     }
 
     

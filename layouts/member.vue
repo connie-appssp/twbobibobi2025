@@ -38,10 +38,10 @@
                 </button>
                 
                 <ul class="space-y-1 md:space-y-3 opacity-100 transition-all duration-300" ref="asideMenu">
-                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/profile')">基本資料</li>
-                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/receive')">收件資料</li>
-                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/prayfor')">祈福人資料</li>
-                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/Member/order')">購買資料</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/member/profile')">基本資料</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/member/receive')">收件資料</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/member/prayfor')">祈福人資料</li>
+                  <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('/member/order')">購買資料</li>
                   <li class="block rounded p-1 cursor-pointer hover:bg-zinc-100 md:p-2" v-on:click="goToPage('#')">登出</li>
                 </ul>
               
@@ -87,11 +87,11 @@ const resizeWindow = () => {
 
 const checkRoutePath = (newPath) => {
   const path  = newPath ?? route.path;
-    isLoginPage.value = path === '/Member' || path === '/Member/';
-    isProfilePage.value = path === '/Member/profile';
-    isReceivePage.value = path === '/Member/receive';
-    isPrayforPage.value = path === '/Member/prayfor';
-    isOrderPage.value = path === '/Member/order';
+    isLoginPage.value = path === '/member' || path === '/member/';
+    isProfilePage.value = path === '/member/profile';
+    isReceivePage.value = path === '/member/receive';
+    isPrayforPage.value = path === '/member/prayfor';
+    isOrderPage.value = path === '/member/order';
     
 }
 

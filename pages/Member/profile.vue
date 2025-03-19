@@ -107,14 +107,14 @@ const input = reactive({
 
 const handleLogout = () => {
     authStore.logout()
-    useRouter().push('/Member')
+    useRouter().push('/member')
 }
 
 onMounted(() => {
     
     console.log('profile', authStore)
     if (!authStore.isLoggedIn) {
-        useRouter().push('/Member')
+        useRouter().push('/member')
     }
 })
 
