@@ -1,1 +1,6 @@
+User-agent: *
+Disallow: /
+Allow: /articles
 
+
+Sitemap: https://bobibobi.tw/sitemap.xml

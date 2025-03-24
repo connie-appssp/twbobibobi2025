@@ -1,11 +1,7 @@
 <template>
   <BaseLayout>
     <template #content>
-
-        <!-- <main> -->
-          <slot />  <!-- 這裡顯示頁面內容 -->
-        <!-- </main> -->
-      
+      <slot />
     </template>
   </BaseLayout>
 </template>

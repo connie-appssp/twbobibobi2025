@@ -1,13 +1,13 @@
 <template>
   <div>
-    <section class="h-[calc(100vh-105px)] w-full d-flex relative">
+    <section class="h-[calc(100vh-105px)] w-full relative">
       <!-- Trees -->
       <img src="/img/bg/kv_bg_r.png" class="w-[10%] absolute top-0 right-0" />
       <img src="/img/bg/kv_bg_l.png" class="w-[15%] absolute bottom-0 left-0" />
       
       <div class="w-px h-[8vh] bg-red-950 absolute m-auto inset-x-0 top-0"></div><!-- top verticle line -->
 
-      <div class="w-fit h-fit absolute m-auto inset-0 d-flex flex-column">
+      <div class="w-fit h-fit absolute m-auto inset-0">
           <div>
             <img src="/img/logo/logo-home.png" />
           </div>
@@ -36,7 +36,7 @@
 
     <!-- 當前活動 start -->
     <section>
-      <div class="d-flex place-items-center mt-[5rem]">
+      <div class="place-items-center mt-[5rem]">
         <div class="w-fit">
           <img src="/img/obj/roof.png" class="w-[200px]" />
         </div>
@@ -77,7 +77,7 @@
 
     <!-- 資訊專區 start -->
     <section>
-      <div class="d-flex place-items-center mt-[5rem]">
+      <div class="place-items-center mt-[5rem]">
         <div class="w-fit">
           <img src="/img/obj/roof.png" class="w-[200px]" />
         </div>
@@ -117,7 +117,7 @@
     
     <!-- 新聞報導 start -->
     <section>
-      <div class="d-flex place-items-center mt-[5rem]">
+      <div class="place-items-center mt-[5rem]">
         <div class="w-fit">
           <img src="/img/obj/roof.png" class="w-[200px]" />
         </div>
@@ -147,7 +147,7 @@
 
     <!-- 信眾服務 start -->
     <section>
-      <div class="d-flex place-items-center mt-[5rem] bg-[url(/img/bg/indexServiceListBg.jpg)] bg-cover py-[3rem]">
+      <div class="place-items-center mt-[5rem] bg-[url(/img/bg/indexServiceListBg.jpg)] bg-cover py-[3rem]">
         <div class="w-fit">
           <img src="/img/obj/roof.png" class="w-[200px]" />
         </div>
@@ -171,7 +171,7 @@
     
     <!-- 合作宮廟 start 
     <section>
-      <div class="d-flex place-items-center mt-[5rem]">
+      <div class="place-items-center mt-[5rem]">
         <div class="w-fit">
           <img src="/img/obj/roof.png" class="w-[200px]" />
         </div>
