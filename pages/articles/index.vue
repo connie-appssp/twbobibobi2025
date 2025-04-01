@@ -49,32 +49,56 @@
 </template>
 
 <script setup>
+import axios from 'axios';
 
-const articles = reactive([
-    {
-        dataid: 2,
-        column: '燈種說明',
-        MetaSiteTitle: '光明燈介紹',
-        MetaSiteCaption: '保必保庇導讀｜光明燈是一種傳統的宗教祈福方式，常見於道教和佛教信仰中。點光明燈的目的在於祈求光明、智慧與平安，尤其在運勢低迷或犯太歲的年份 ，很多人會選擇點光明燈以消災解厄，祈求新的一年能夠順利無礙。',
-        img: 'https://bobibobi.tw/Temples/SiteFile/carousel/18s.jpg',
-    },
-    {
-        dataid: 5,
-        column: '生肖運勢',
-        MetaSiteTitle: '2025生肖運勢',
-        MetaSiteCaption: '保必保庇導讀｜2025年是乙巳蛇年，乙木與巳火結合，木火相生，象徵著能量增強與活力的年份。這一年不同生肖的運勢會受到「蛇」 這個生肖以及天干地支的影響。',
-        img: 'https://bobibobi.tw/Temples/images/temple/Zodiac/Rat_2025.jpg',
-    },
-    {
-        dataid: 12,
-        column: '過年注意事項',
-        MetaSiteTitle: '過年祭祖注意事項',
-        MetaSiteCaption: '保必保庇導讀｜過年祭祖是重要的傳統儀式，代表對祖先的尊敬與感恩，同時祈求新年家宅平安、運勢昌隆。在進行祭祖儀式時，有以下注意事項，幫助您莊重且順利地完成儀式。',
-        img: "https://bobibobi.tw/Temples/SiteFile/News/20241228_NewsImg_s.jpg?t=666168",
-    },
-])
+const apiBase = useRuntimeConfig().public.apiBase;
+const api = {
+    GetColumns: `${apiBase}/Columns`,
+};
+const articles = ref([])
+// const articles = reactive([
+//     {
+//         dataid: 2,
+//         column: '燈種說明',
+//         MetaSiteTitle: '光明燈介紹',
+//         MetaSiteCaption: '保必保庇導讀｜光明燈是一種傳統的宗教祈福方式，常見於道教和佛教信仰中。點光明燈的目的在於祈求光明、智慧與平安，尤其在運勢低迷或犯太歲的年份 ，很多人會選擇點光明燈以消災解厄，祈求新的一年能夠順利無礙。',
+//         img: 'https://bobibobi.tw/Temples/images/temple/Zodiac/Rat_2025.jpg',
+//     },
+//     {
+//         dataid: 5,
+//         column: '生肖運勢',
+//         MetaSiteTitle: '2025生肖運勢',
+//         MetaSiteCaption: '保必保庇導讀｜2025年是乙巳蛇年，乙木與巳火結合，木火相生，象徵著能量增強與活力的年份。這一年不同生肖的運勢會受到「蛇」 這個生肖以及天干地支的影響。',
+//         img: 'https://bobibobi.tw/Temples/images/temple/Zodiac/Rat_2025.jpg',
+//     },
+//     {
+//         dataid: 12,
+//         column: '過年注意事項',
+//         MetaSiteTitle: '過年祭祖注意事項',
+//         MetaSiteCaption: '保必保庇導讀｜過年祭祖是重要的傳統儀式，代表對祖先的尊敬與感恩，同時祈求新年家宅平安、運勢昌隆。在進行祭祖儀式時，有以下注意事項，幫助您莊重且順利地完成儀式。',
+//         img: "https://bobibobi.tw/Temples/SiteFile/News/20241228_NewsImg_s.jpg?t=666168",
+//     },
+// ])
 
 
 const goArticle = (dataid) => location.href=`/articles/${dataid}`;
 
+const apiGetColumns = (params) => { return axios.get(api.GetColumns, params).catch((error) => console.warn('apiGetColumns: ', error.response?.data || error)) };
+const GetColumns = async (queryTitle) => {
+    const queryStringParams = {
+        params: {
+            queryTitle: queryTitle
+        }
+    };
+
+    try {
+        const { data } = await apiGetColumns(queryStringParams);
+        console.log('GetColumns data', data)
+        articles.value = data;
+    } catch (error) { console.warn('GetColumns: ', error.response?.data || error) }
+};
+
+onMounted(()=>{
+    GetColumns(null);
+})
 </script>

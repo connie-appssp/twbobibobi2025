@@ -2,6 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
+  runtimeConfig:{
+    public: {
+      apiBase: 'http://localhost:5087/api', // 可在前後端存取
+    },
+  },
   app: {
     baseURL: '/',
     head: {
@@ -49,8 +54,5 @@ export default defineNuxtConfig({
         host: 'localhost',
       },
     },
-  },
-  robots:{
-    
   },
 })
