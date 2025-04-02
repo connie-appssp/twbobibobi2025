@@ -9,14 +9,17 @@
                 <div class="h-fit w-[80vw] mt-5 sm:grid-cols-2 place-items-center">
                     <div class="w-full h-12 border border-zinc-300 rounded-full flex">
                         <input type="text" class="flex-1 rounded-l-full bg-white/70 px-5 focus-visible:outline-0" placeholder="你想瞭解什麼嗎 ? ...">
-                        <button class="text-2xl text-zinc-400 rounded-r-full bg-white/70 px-3"><i class="fa fa-search"></i></button>
+                        <button class="text-2xl text-zinc-400 rounded-r-full bg-white/70 px-3">
+                            <ClientOnly><i class="fa fa-search"></i></ClientOnly>
+                        </button>
                     </div>
 
                     <div class="w-full flex mt-2 px-0 space-x-5">
-                        <div class="flex-1 flex flex-wrap">
-                            <div class="w-fit px-3 py-1 mb-2 mr-2 border border-zinc-300 bg-white/30 text-zinc-400 text-sm rounded-full hover:bg-zinc-600 hover:text-white transition duration-700 cursor-pointer">燈種說明</div>
+                        <div class="flex-1 flex flex-wrap" v-if="!!columns.length">
+                            <div v-for="column, index in columns" :key="column.title+index" class="w-fit px-3 py-1 mb-2 mr-2 border border-zinc-300 bg-white/30 text-zinc-400 text-sm rounded-full hover:bg-zinc-600 hover:text-white transition duration-700 cursor-pointer" v-on:click="toggleArticleList(column)">{{column.title}}</div>
+                            <!-- <div class="w-fit px-3 py-1 mb-2 mr-2 border border-zinc-300 bg-white/30 text-zinc-400 text-sm rounded-full hover:bg-zinc-600 hover:text-white transition duration-700 cursor-pointer">燈種說明</div>
                             <div class="w-fit px-3 py-1 mb-2 mr-2 border border-zinc-300 bg-white/30 text-zinc-400 text-sm rounded-full hover:bg-zinc-600 hover:text-white transition duration-700 cursor-pointer">生肖運勢</div>
-                            <div class="w-fit px-3 py-1 mb-2 mr-2 border border-zinc-300 bg-white/30 text-zinc-400 text-sm rounded-full hover:bg-zinc-600 hover:text-white transition duration-700 cursor-pointer">過年注意事項</div>
+                            <div class="w-fit px-3 py-1 mb-2 mr-2 border border-zinc-300 bg-white/30 text-zinc-400 text-sm rounded-full hover:bg-zinc-600 hover:text-white transition duration-700 cursor-pointer">過年注意事項</div> -->
                         </div>
                     </div>
                     
@@ -26,17 +29,17 @@
         </section>
 
         <section class="place-items-center space-y-3 mt-5">
-            <div v-for="article, index in articles" :key="article.column + index" class="grid w-[80vw] bg-white/20 backdrop-blur-sm rounded-md shadow-md p-3 space-y-2 group cursor-pointer md:flex md:p-3 md:space-x-5 md:space-y-0" v-on:click="goArticle(article.dataid)">
+            <div v-for="article, index in articles" :key="article.metaSiteTitle + index" class="grid w-[80vw] bg-white/20 backdrop-blur-sm rounded-md shadow-md p-3 space-y-2 group cursor-pointer md:flex md:p-3 md:space-x-5 md:space-y-0" v-on:click="goArticle(article.articlesId)">
                 <div>
                     <div class="md:w-28 aspect-square overflow-hidden">
                         <img :src="article.img" class="w-full" />
                     </div>
                 </div>
-                <div>
-                    <div class="text-2xl tracking-wide">{{article.MetaSiteTitle}}</div>
-                    <div class="text-zinc-500 tracking-wide line-clamp-2">{{article.MetaSiteCaption}}</div>
-                    <div class="w-full flex place-content-between">
-                        <div class="text-sm text-zinc-400 tracking-wide py-1">文章分類：{{article.column}}</div>
+                <div class="w-full flex flex-col">
+                    <div class="text-2xl tracking-wide">{{article.metaSiteTitle}}</div>
+                    <div class="flex-1 text-zinc-500 tracking-wide line-clamp-2">{{article.metaSiteCaption}}</div>
+                    <div class="w-full flex justify-between">
+                        <div class="text-sm text-zinc-400 tracking-wide py-1">文章分類：{{article.columnTitle}}</div>
                         <div class="w-fit px-3 py-1 border border-zinc-200 text-zinc-400 text-xs rounded-full group-hover:bg-zinc-600 group-hover:text-white transition duration-700">前往文章</div>
                     </div>
                 </div>
@@ -54,7 +57,10 @@ import axios from 'axios';
 const apiBase = useRuntimeConfig().public.apiBase;
 const api = {
     GetColumns: `${apiBase}/Columns`,
+    GetArticles: `${apiBase}/Articles`,
 };
+
+const columns = ref([]);
 const articles = ref([])
 // const articles = reactive([
 //     {
@@ -94,9 +100,37 @@ const GetColumns = async (queryTitle) => {
     try {
         const { data } = await apiGetColumns(queryStringParams);
         console.log('GetColumns data', data)
-        articles.value = data;
+        columns.value = data;
     } catch (error) { console.warn('GetColumns: ', error.response?.data || error) }
 };
+
+const apiGetArticles = (params) => { return axios.get(api.GetArticles, params).catch((error) => console.warn('apiGetArticles: ', error)) };
+const GetArticles = async (columns) => {
+    const queryStringParams = {
+        params: {
+            ColumnsId: columns.columnsId
+        }
+    };
+
+    try {
+        const { data } = await apiGetArticles(queryStringParams);
+        console.log('GetArticles data', data)
+        articles.value = parseArticlesData(data, columns.title);
+
+    } catch (error) { console.warn('GetArticles: ', error) }
+};
+
+const toggleArticleList = async (columns) => {
+    await GetArticles(columns);
+}
+
+function parseArticlesData(data, columnTitle) {
+    return data.map(item => {
+        const obj = JSON.parse(JSON.stringify(item));
+        obj.columnTitle = columnTitle;
+        return obj;
+    })
+}
 
 onMounted(()=>{
     GetColumns(null);
